@@ -47,7 +47,7 @@
 		},
 		"tagName":{
 			"type":"string",
-			"default":"h2"
+			"default":"h4"
 		}
 		
 	

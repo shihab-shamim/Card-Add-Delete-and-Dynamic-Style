@@ -1,6 +1,7 @@
 	import { createRoot } from "react-dom/client";
 	import "./style.scss";
 	import Style from "./Components/Common/Style";
+import TagChange from "./Components/Frontend/TagChange";
 
 	document.addEventListener("DOMContentLoaded", () => {
 	const blockNameEls = document.querySelectorAll(
@@ -27,7 +28,8 @@
 					/>
 					</div>
 					<div className="profile-info">
-					<h2 className="cardTitle" dangerouslySetInnerHTML={{__html : card.name}} />
+					{/* <h2 className="cardTitle" dangerouslySetInnerHTML={{__html : card.name}} /> */}
+					<TagChange className="cardTitle" tag={tagName} dangerouslySetInnerHTML={{__html : card.name}} ></TagChange>
 
 					<p  className="job-title" dangerouslySetInnerHTML={{__html : card.passionate}} /> 
 					<p dangerouslySetInnerHTML={{__html : card.company}} /> 

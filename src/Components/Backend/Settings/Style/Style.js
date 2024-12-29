@@ -64,7 +64,7 @@ onChange={(val)=>setAttributes({ description: {...description,bg: val } })}
       </PanelBody>
       <PanelBody 
       className="bPlPanelBody"
-      title={__("Description-style", "b-blocks")}
+      title={__("Title-tag", "b-blocks")}
       initialOpen={false}
        >
 <SelectControl
