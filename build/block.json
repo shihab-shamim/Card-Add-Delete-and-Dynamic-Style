@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "b-blocks/test-purpose",
+  "version": "1.0.0",
+  "title": "add Card",
+  "category": "widgets",
+  "description": "Short description of the Test Purpose",
+  "keywords": [
+    "add Card"
+  ],
+  "textdomain": "b-blocks",
+  "attributes": {
+    "alignment": {
+      "type": "string",
+      "default": "center"
+    },
+    "purposeType": {
+      "type": "string",
+      "default": "test"
+    },
+    "cards": {
+      "type": "array",
+      "default": [
+        {
+          "name": "SHIHAB SHAMIM",
+          "passionate": "Web Developer",
+          "company": "bPlugins",
+          "about": "I am a web developer and I love to create amazing websites.",
+          "img": "https://i.ibb.co.com/4RBL613/1714662976645-2.jpg"
+        }
+      ]
+    },
+    "title": {
+      "type": "object",
+      "default": {
+        "color": "#000000",
+        "bg": ""
+      }
+    },
+    "description": {
+      "type": "object",
+      "default": {
+        "color": "#000000",
+        "bg": ""
+      }
+    },
+    "tagName": {
+      "type": "string",
+      "default": "h2"
+    }
+  },
+  "supports": {
+    "align": [
+      "wide",
+      "full"
+    ],
+    "html": false
+  },
+  "example": {
+    "attributes": {}
+  },
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./view.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}
