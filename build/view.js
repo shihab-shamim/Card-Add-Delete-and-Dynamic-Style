@@ -23,32 +23,40 @@ const Style = ({
     colors,
     alignment,
     title,
-    description
+    description,
+    cards
   } = attributes;
   const mainSl = `#${id}`;
   const cardBody = `${mainSl} .cardBody`;
   const cardContainer = `${cardBody} .cardContainer`;
   const profileCard = `${cardContainer} .profile-card`;
   const profileInfo = `${profileCard} .profile-info`;
-  const cardTitle = `${profileInfo} .cardTitle`;
   const jobDescription = `${profileInfo} .job-title`;
+  const cardStyle = cards.map((card, index) => {
+    const uniqueCardClass = `.cardTitle-${index}`;
+    return `
+		${uniqueCardClass} {
+			color: ${card.color};
+			background-color: ${card.bg};
+		}
+		`;
+  }).join("\n") || "";
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("style", {
     dangerouslySetInnerHTML: {
       __html: `
-		${cardBody}{
-		display: flex;
-		justify-content:${alignment};
-	}
-	
-	${jobDescription}{
-		color:${description.color};
-		background-color:${description.bg}
+			${cardBody}{
+			display: flex;
+			justify-content:${alignment};
 		}
-	${cardTitle}{
-		color:${title.color};
-		background-color:${title.bg}
-		}
-	`
+		
+		${jobDescription}{
+			color:${description.color};
+			background-color:${description.bg}
+			}
+			
+		${cardStyle}
+		
+		`
     }
   });
 };

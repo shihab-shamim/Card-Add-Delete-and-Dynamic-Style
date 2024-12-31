@@ -22,13 +22,7 @@
 		"cards":{
 			"type":"array",
 			"default":[
-				{"name":"SHIHAB SHAMIM",
-				"passionate":"Web Developer",
-				"company":"bPlugins",
-				"about":"I am a web developer and I love to create amazing websites.",
-				"img":"https://i.ibb.co.com/4RBL613/1714662976645-2.jpg"
-                
-				}
+				
 			]
 		},
 		"title":{

@@ -1,4 +1,5 @@
 import { RichText, useBlockProps } from "@wordpress/block-editor";
+import {useState} from "react"
 
 import Settings from "./Settings/Settings";
 import Style from "../Common/Style";
@@ -10,21 +11,24 @@ const Edit = (props) => {
    cards,
    tagName
   } = attributes;
-  console.log(tagName);
+ const [selected,setSelected]=useState(0);
+
+ 
+
 
   return (
     <>
       
 
       <div {...useBlockProps()}>
-      <Settings {...{ attributes, setAttributes }} />
+      <Settings {...{ attributes, setAttributes,selected }} />
       <Style attributes={attributes} id={`block-${clientId}`} />
         
 
        <div className="cardBody">
        <div className="cardContainer">
        {
-          cards.map((card,i)=><div key={i} className="profile-card">
+          cards.map((card,i)=><div key={i} onClick={() => setSelected(i)} className="profile-card">
           <div className="profile-header">
             <img
               className="profile-photo"
@@ -34,9 +38,10 @@ const Edit = (props) => {
           </div>
           <div className="profile-info">
             <RichText
+      
             tagName={tagName}
               value={card.name}
-             className="cardTitle"
+              className={`cardTitle cardTitle-${i}`}
               onChange={(e) => {
                 const newCards = [...cards]
                 newCards[i].name= e

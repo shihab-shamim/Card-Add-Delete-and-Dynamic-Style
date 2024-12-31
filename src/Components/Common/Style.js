@@ -1,29 +1,39 @@
-const Style = ({ attributes, id }) => {
-	const { colors,alignment,title,description } = attributes;
+	const Style = ({ attributes, id }) => {
+		const { colors,alignment,title,description,cards } = attributes;
 
-	const mainSl = `#${id}`;
-const cardBody = `${mainSl} .cardBody`
-const cardContainer =`${cardBody} .cardContainer`
-const profileCard = `${cardContainer} .profile-card`
-const profileInfo = `${profileCard} .profile-info`
-const cardTitle=`${profileInfo} .cardTitle`
-const jobDescription=`${profileInfo} .job-title`
+		const mainSl = `#${id}`;
+	const cardBody = `${mainSl} .cardBody`;
+	const cardContainer =`${cardBody} .cardContainer`;
+	const profileCard = `${cardContainer} .profile-card`;
+	const profileInfo = `${profileCard} .profile-info`;
+	const jobDescription=`${profileInfo} .job-title`;
 
-	return <style dangerouslySetInnerHTML={{
-		__html: `
-		${cardBody}{
-		display: flex;
-		justify-content:${alignment};
-	}
+	const cardStyle=cards.map((card,index)=>{
+		const uniqueCardClass = `.cardTitle-${index}`; 
+		return `
+		${uniqueCardClass} {
+			color: ${card.color};
+			background-color: ${card.bg};
+		}
+		`;
+
+	}).join("\n") || "";
 	
-	${jobDescription}{
-		color:${description.color};
-		background-color:${description.bg}
+
+		return <style dangerouslySetInnerHTML={{
+			__html: `
+			${cardBody}{
+			display: flex;
+			justify-content:${alignment};
 		}
-	${cardTitle}{
-		color:${title.color};
-		background-color:${title.bg}
-		}
-	`}} />;
-}
-export default Style;
+		
+		${jobDescription}{
+			color:${description.color};
+			background-color:${description.bg}
+			}
+			
+		${cardStyle}
+		
+		`}} />;
+	}
+	export default Style;

@@ -28,7 +28,6 @@ import TagChange from "./Components/Frontend/TagChange";
 					/>
 					</div>
 					<div className="profile-info">
-					{/* <h2 className="cardTitle" dangerouslySetInnerHTML={{__html : card.name}} /> */}
 					<TagChange className="cardTitle" tag={tagName} dangerouslySetInnerHTML={{__html : card.name}} ></TagChange>
 
 					<p  className="job-title" dangerouslySetInnerHTML={{__html : card.passionate}} /> 
